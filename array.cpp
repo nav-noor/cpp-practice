@@ -3,21 +3,18 @@
 using namespace std;
 
 int main() {
-    int nums[] = {4, 5, 6, 2, 7};
+    int nums[] = {1,2,5,6,7,2,4,5,6,7};
     int n = sizeof(nums) / sizeof(nums[0]);
-
-    int smallest = INT_MAX;
-    int smallestIndex = -1;
-
-    for (int i = 0; i < n; i++) {
-        if (nums[i] < smallest) {
-            smallest = nums[i];
-            smallestIndex = i;
+    for(int i=0;i<n;i++){
+        int count = 1;
+        for(int j=0;j<n;j++){
+            if(i != j && nums[i]==nums[j]){
+                count++;
+            }
+        }
+        if(count==1){
+            cout<<"unique value is:"<<nums[i]<<"\n";
         }
     }
-
-    cout << "Smallest value: " << smallest << "\n";
-    cout << "Index of smallest value: " << smallestIndex << "\n";
-
     return 0;
 }
